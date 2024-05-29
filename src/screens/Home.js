@@ -2,8 +2,6 @@ import {
   View,
   Text,
   ScrollView,
-  StyleSheet,
-  Button,
   TouchableOpacity,
   FlatList,
 } from "react-native";
@@ -18,8 +16,9 @@ import menuItems from "../../constants/MenuItems";
 import { useBalanceStore } from "../../store/balanceStore";
 import { Ionicons } from "@expo/vector-icons";
 import WidgetList from "../components/SortableList/WidgetList";
+import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 
-const Home = ({ route }) => {
+const Home = ({ route, navigation }) => {
   const { balance, runTransaction, transactions, clearTransactions } =
     useBalanceStore();
 
@@ -34,34 +33,6 @@ const Home = ({ route }) => {
     });
   };
 
-  const renderItem = ({ item }) => (
-    <View
-      style={{
-        flexDirection: "row",
-        alignItems: "center",
-        gap: 16,
-        marginBottom: transactions.length < 2 ? 0 : 16,
-      }}
-    >
-      <View style={styles.circle}>
-        <Ionicons
-          name={item.amount > 0 ? "add" : "remove"}
-          size={24}
-          color={Colors.dark}
-        />
-      </View>
-      <View style={{ flex: 1 }}>
-        <Text style={{ fontWeight: "400" }}>
-          {item.amount > 0 ? "Money Credited" : "Money Debited"}
-        </Text>
-        <Text style={{ color: Colors.gray, fontSize: 12 }}>
-          {item.date.toLocaleString()}
-        </Text>
-      </View>
-      <Text style={{ marginRight: 2 }}>₹ {Math.abs(item.amount)}</Text>
-    </View>
-  );
-
   return (
     <ScrollView
       style={{ backgroundColor: Colors.background }}
@@ -74,18 +45,7 @@ const Home = ({ route }) => {
           <Text style={styles.balance}>{balance() || 0}</Text>
           <Text style={styles.currency}>₹</Text>
         </View>
-        <TouchableOpacity
-          style={[
-            defaultStyles.pillButtonSmall,
-            { backgroundColor: Colors.lightGray, marginVertical: 20 },
-          ]}
-        >
-          <Text style={[defaultStyles.buttonTextSmall, { color: Colors.dark }]}>
-            Accounts
-          </Text>
-        </TouchableOpacity>
       </View>
-
       <View style={styles.actionRow}>
         <RoundButton icon={"add"} text={"Add money"} onPress={onAddMoney} />
         <RoundButton
@@ -100,19 +60,45 @@ const Home = ({ route }) => {
           menuItems={menuItems}
         />
       </View>
-      <Text style={defaultStyles.sectionHeader}>Transactions</Text>
+      <Text style={defaultStyles.sectionHeader}>Recent Transactions </Text>
       <View style={styles.transactions}>
-        <FlatList
-          data={transactions.slice().reverse()}
-          renderItem={renderItem}
-          keyExtractor={(item) => item.id}
-          showsVerticalScrollIndicator={false}
-          ListEmptyComponent={
-            <Text style={{ padding: 14, color: Colors.gray }}>
-              No transactions yet
-            </Text>
-          }
-        />
+        {transactions.length === 0 && (
+          <Text style={{ padding: 14, color: Colors.gray }}>
+            No transactions yet
+          </Text>
+        )}
+        {transactions
+          .slice()
+          .reverse()
+          .slice(0, 4)
+          .map((item) => (
+            <View
+              key={item.id}
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                gap: 16,
+                marginBottom: transactions.length < 2 ? 0 : 16,
+              }}
+            >
+              <View style={styles.circle}>
+                <Ionicons
+                  name={item.amount > 0 ? "add" : "remove"}
+                  size={24}
+                  color={Colors.dark}
+                />
+              </View>
+              <View style={{ flex: 1 }}>
+                <Text style={{ fontWeight: "400" }}>
+                  {item.amount > 0 ? "Money Credited" : "Money Debited"}
+                </Text>
+                <Text style={{ color: Colors.gray, fontSize: 12 }}>
+                  {item.date.toLocaleString()}
+                </Text>
+              </View>
+              <Text style={{ marginRight: 2 }}>₹ {Math.abs(item.amount)}</Text>
+            </View>
+          ))}
       </View>
       <Text style={[defaultStyles.sectionHeader, { marginVertical: 24 }]}>
         Widgets
