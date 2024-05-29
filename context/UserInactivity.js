@@ -9,6 +9,34 @@ export const UserInactivityProvider = ({ children }) => {
   const { isSignedIn } = useAuth();
   const navigation = useNavigation();
 
+  const recordStartTime = async () => {
+    await AsyncStorage.setItem("startTime", Date.now().toString());
+  };
+
+  const handleAppStateChange = async (nextAppState) => {
+    console.log("---handleAppStateChange----nextAppState---", nextAppState);
+
+    if (nextAppState === "background") {
+      await recordStartTime();
+    } else if (
+      nextAppState === "active" &&
+      appState.current.match(/background/)
+    ) {
+      const startTime = await AsyncStorage.getItem("startTime");
+      const elapsed = Date.now() - (parseInt(startTime, 10) || 0);
+      console.log("----handleAppStateChange---elapsed---", elapsed);
+
+      if (elapsed > 5000 && isSignedIn) {
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Lock" }],
+        });
+        // navigation.navigate("Lock");
+      }
+    }
+    appState.current = nextAppState;
+  };
+
   useEffect(() => {
     const subscription = AppState.addEventListener(
       "change",
@@ -19,30 +47,6 @@ export const UserInactivityProvider = ({ children }) => {
       subscription.remove();
     };
   }, []);
-
-  const recordStartTime = async () => {
-    await AsyncStorage.setItem("startTime", Date.now().toString());
-  };
-
-  const handleAppStateChange = async (nextAppState) => {
-    console.log("🚀 ~ handleAppStateChange ~ nextAppState", nextAppState);
-
-    if (nextAppState === "background") {
-      await recordStartTime();
-    } else if (
-      nextAppState === "active" &&
-      appState.current.match(/background/)
-    ) {
-      const startTime = await AsyncStorage.getItem("startTime");
-      const elapsed = Date.now() - (parseInt(startTime, 10) || 0);
-      console.log("🚀 ~ handleAppStateChange ~ elapsed:", elapsed);
-
-      if (elapsed > 3000 && isSignedIn) {
-        navigation.navigate("Lock");
-      }
-    }
-    appState.current = nextAppState;
-  };
 
   return children;
 };
