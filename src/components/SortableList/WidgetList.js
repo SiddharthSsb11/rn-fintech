@@ -13,10 +13,10 @@ const tiles = [
     id: "cashback",
   },
   {
-    id: "recent",
+    id: "cards",
   },
   {
-    id: "cards",
+    id: "recent",
   },
 ];
 
@@ -25,7 +25,7 @@ const WidgetList = () => {
     <View
       style={{
         paddingHorizontal: MARGIN,
-        marginBottom: 80,
+        marginBottom: 50,
       }}
     >
       <SortableList

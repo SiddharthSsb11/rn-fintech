@@ -102,9 +102,9 @@ const Verify = ({ navigation, route }) => {
         )}
       />
 
-      <TouchableOpacity onPress={() => navigation.navigate("Signin")}>
+      <TouchableOpacity onPress={() => navigation.goBack()}>
         <Text style={[defaultStyles.textLink]}>
-          Already have an account? Log in
+          Didn't receive OTP? Try again.
         </Text>
       </TouchableOpacity>
     </View>

@@ -1,5 +1,9 @@
 const menuItems = [
-  { label: "Statement", icon: "list", onPress: () => console.log("Option 1") },
+  {
+    label: "Statement",
+    icon: "featured-play-list",
+    onPress: () => console.log("Option 1"),
+  },
   {
     label: "Converter",
     icon: "currency-exchange",

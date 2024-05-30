@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: Colors.lightGray,
-    padding: 20,
+    padding: 18,
     borderRadius: 16,
     fontSize: 20,
     marginRight: 10,

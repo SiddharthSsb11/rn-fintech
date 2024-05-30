@@ -9,7 +9,7 @@ import { Ionicons } from "@expo/vector-icons";
 const styles = StyleSheet.create({
   container: {
     width: SIZE - 20,
-    height: 150,
+    height: 156,
     backgroundColor: "white",
     borderRadius: 20,
     shadowColor: "#000",
@@ -61,22 +61,24 @@ const Tile = ({ id, onLongPress }) => {
   if (id === "recent") {
     return (
       <View style={styles.container} pointerEvents="none">
-        <View>
+        <View style={{ justifyContent: "center", flex: 1 }}>
           <Text style={{ color: Colors.gray, fontWeight: "700", fontSize: 16 }}>
-            Recent Transaction
+            Recent Transaction:
           </Text>
 
           {transactions.length === 0 && (
-            <Text
-              style={{
-                color: Colors.gray,
-                fontWeight: "bold",
-                fontSize: 18,
-                paddingTop: 10,
-              }}
-            >
-              No Transactions
-            </Text>
+            <>
+              <Text
+                style={{
+                  color: Colors.gray,
+                  fontWeight: "bold",
+                  fontSize: 18,
+                  paddingTop: 10,
+                }}
+              >
+                No recent transactions found
+              </Text>
+            </>
           )}
 
           {transactions.length > 0 && (
@@ -162,9 +164,12 @@ const Tile = ({ id, onLongPress }) => {
     const totalCredits = getTotalCreditsThisMonth(transactions);
 
     return (
-      <View style={styles.container} pointerEvents="none">
+      <View
+        style={[styles.container, { justifyContent: "center" }]}
+        pointerEvents="none"
+      >
         <Text style={{ color: Colors.gray, fontWeight: "700", fontSize: 16 }}>
-          Debits this month
+          Month's Debits
         </Text>
         <Text
           style={{
@@ -178,7 +183,7 @@ const Tile = ({ id, onLongPress }) => {
           ₹ {Math.abs(totalSpent)}
         </Text>
         <Text style={{ color: Colors.gray, fontWeight: "700", fontSize: 16 }}>
-          Credits this month
+          Month's Credits
         </Text>
         <Text
           style={{

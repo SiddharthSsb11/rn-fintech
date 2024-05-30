@@ -64,6 +64,7 @@ const Lock = ({ navigation, route }) => {
         index: 0,
         routes: [{ name: "Home" }],
       });
+      // navigation.navigate("Home");
     } else {
       if (error === "not_enrolled") {
         Alert.alert("Biometric authentication is not set up on this device.");
@@ -84,6 +85,8 @@ const Lock = ({ navigation, route }) => {
           index: 0,
           routes: [{ name: "Home" }],
         });
+        // navigation.navigate("Home");
+
         setCode([]);
       } else {
         offset.value = withSequence(
@@ -226,7 +229,7 @@ const Lock = ({ navigation, route }) => {
             justifyContent: "flex-start",
             fontWeight: "400",
             fontSize: 10,
-            marginTop: -56,
+            // marginTop: -30,
           }}
         >
           ( Test code: 000000 )

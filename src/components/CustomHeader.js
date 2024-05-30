@@ -1,12 +1,16 @@
 import Colors from "../../constants/Colors";
 import { Ionicons } from "@expo/vector-icons";
-import { View, Text, StyleSheet } from "react-native";
-import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { TextInput } from "react-native-gesture-handler";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { BlurView } from "expo-blur";
 import styles from "./CustomHeader.styles";
+import { FontAwesome } from "@expo/vector-icons/build/Icons";
+import { useNavigation } from "@react-navigation/native";
+import Currencies from "../../constants/Currencies";
 
 const CustomHeader = () => {
+  const navigation = useNavigation();
   const { top } = useSafeAreaInsets();
 
   return (
@@ -27,14 +31,13 @@ const CustomHeader = () => {
             width: 40,
             height: 40,
             borderRadius: 20,
-            backgroundColor: Colors.gray,
+            backgroundColor: Colors.lightGray,
             justifyContent: "center",
             alignItems: "center",
           }}
+          onPress={() => navigation.navigate("Profile")}
         >
-          <Text style={{ color: "#fff", fontWeight: "500", fontSize: 16 }}>
-            SG
-          </Text>
+          <FontAwesome name="user" size={24} color={Colors.dark} />
         </TouchableOpacity>
 
         <View style={styles.searchSection}>
@@ -50,12 +53,20 @@ const CustomHeader = () => {
             placeholderTextColor={Colors.dark}
           />
         </View>
-        <View style={styles.circle}>
+        <TouchableOpacity
+          style={styles.circle}
+          onPress={() =>
+            navigation.navigate("Graph", { currencyId: Currencies[0].id })
+          }
+        >
           <Ionicons name={"stats-chart"} size={20} color={Colors.dark} />
-        </View>
-        <View style={styles.circle}>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.circle}
+          onPress={() => navigation.navigate("Transactions")}
+        >
           <Ionicons name={"card"} size={20} color={Colors.dark} />
-        </View>
+        </TouchableOpacity>
       </View>
     </BlurView>
   );

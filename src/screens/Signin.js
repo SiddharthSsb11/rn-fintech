@@ -58,6 +58,7 @@ const Signin = ({ navigation }) => {
         });
       } catch (err) {
         console.log("error", JSON.stringify(err, null, 2));
+        // Alert.alert("Error", err.errors[0].message);
         if (isClerkAPIResponseError(err)) {
           if (err.errors[0].code === "form_identifier_not_found") {
             Alert.alert("Error", err.errors[0].message);
@@ -82,7 +83,7 @@ const Signin = ({ navigation }) => {
           </Text>
           <View style={styles.inputContainer}>
             <TextInput
-              style={[styles.input, { flex: 0.15 }]}
+              style={[styles.input, { flex: 0.2, alignItems: "center" }]}
               placeholder="Country code"
               placeholderTextColor={Colors.gray}
               value={countryCode}

@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   greeting: {
     fontSize: 24,
     fontWeight: "bold",
-    marginTop: 80,
+    marginTop: 56,
     alignSelf: "center",
   },
   codeView: {
@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     gap: 20,
-    marginVertical: 100,
+    marginVertical: 64,
   },
   codeEmpty: {
     width: 20,
@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   numbersView: {
-    marginHorizontal: 80,
-    gap: 60,
+    marginHorizontal: 64,
+    gap: 40,
   },
   number: {
     fontSize: 32,

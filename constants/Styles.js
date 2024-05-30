@@ -34,7 +34,7 @@ export const defaultStyles = StyleSheet.create({
     fontWeight: "500",
   },
   pillButtonSmall: {
-    paddingHorizontal: 20,
+    paddingHorizontal: 16,
     height: 40,
     borderRadius: 20,
     justifyContent: "center",
@@ -53,7 +53,7 @@ export const defaultStyles = StyleSheet.create({
   },
   block: {
     marginHorizontal: 20,
-    padding: 14,
+    padding: 16,
     backgroundColor: "#fff",
     borderRadius: 16,
     gap: 20,

@@ -6,10 +6,10 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     marginLeft: "auto",
     marginRight: "auto",
-    gap: 12,
+    gap: 8,
   },
   cellRoot: {
-    width: 45,
+    width: 42,
     height: 60,
     justifyContent: "center",
     alignItems: "center",
@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
   },
   cellText: {
     color: "#000",
-    fontSize: 36,
+    fontSize: 32,
     textAlign: "center",
   },
   focusCell: {

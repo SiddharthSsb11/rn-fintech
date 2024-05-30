@@ -48,7 +48,7 @@ const Signup = ({ navigation }) => {
           </Text>
           <View style={styles.inputContainer}>
             <TextInput
-              style={[styles.input, { flex: 0.15 }]}
+              style={[styles.input, { flex: 0.2, alignItems: "center" }]}
               placeholder="Country code"
               placeholderTextColor={Colors.gray}
               value={countryCode}

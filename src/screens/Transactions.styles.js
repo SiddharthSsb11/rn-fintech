@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.background,
   },
   transactions: {
-    marginHorizontal: 20,
+    marginHorizontal: 16,
     padding: 14,
     backgroundColor: "#fff",
     borderRadius: 16,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   summary: {
-    marginHorizontal: 20,
+    marginHorizontal: 12,
     padding: 14,
     backgroundColor: "#fff",
     borderRadius: 16,

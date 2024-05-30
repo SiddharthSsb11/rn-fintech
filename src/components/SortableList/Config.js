@@ -6,8 +6,8 @@ import { Easing } from "react-native-reanimated";
 // }
 
 const { width } = Dimensions.get("window");
-export const MARGIN = 20;
-export const SIZE = width / 2 - MARGIN;
+export const MARGIN = 10;
+export const SIZE = width / 2 - MARGIN / 1.5;
 export const COL = 2;
 
 export const animationConfig = {

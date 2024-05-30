@@ -51,9 +51,9 @@ const Dropdown = ({ icon, text, menuItems }) => {
 
     return {
       position: "absolute",
-      // top: buttonLayout.py + buttonLayout.height,
+      top: buttonLayout.py + buttonLayout.height,
       left,
-      top,
+      // top,
     };
   };
 
