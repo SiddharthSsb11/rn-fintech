@@ -5,8 +5,8 @@ import { ClerkProvider } from "@clerk/clerk-expo";
 import * as SecureStore from "expo-secure-store";
 import { NavigationContainer } from "@react-navigation/native";
 import { UserInactivityProvider } from "./context/UserInactivity";
-
-const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
+import { EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY } from "@env";
+// const CLERK_PUBLISHABLE_KEY = process.env.EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY;
 
 // Cache the Clerk JWT
 const tokenCache = {
@@ -29,7 +29,7 @@ const tokenCache = {
 export default function App() {
   return (
     <ClerkProvider
-      publishableKey={CLERK_PUBLISHABLE_KEY}
+      publishableKey={EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY}
       tokenCache={tokenCache}
     >
       <NavigationContainer>
