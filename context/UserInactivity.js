@@ -27,11 +27,11 @@ export const UserInactivityProvider = ({ children }) => {
       console.log("----handleAppStateChange---elapsed---", elapsed);
 
       if (elapsed > 5000 && isSignedIn) {
-        // navigation.reset({
-        //   index: 0,
-        //   routes: [{ name: "Lock" }],
-        // });
-        navigation.navigate("Lock");
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "Lock" }],
+        });
+        // navigation.navigate("Lock");
       }
     }
     appState.current = nextAppState;
