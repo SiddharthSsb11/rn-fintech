@@ -24,6 +24,67 @@ Things in Pipeline
 Pull requests are always welcome. 
 ```
 
+## <a name="screenshots">🖼️ Screenshots</a>
+
+<div style="display: flex; flex-direction: 'row';">
+ <img src="./screenshots/1.png" width=20% alt="Onboarding"/>
+ <img src="./screenshots/2.png"  width=20% />
+ <img src="./screenshots/3.png" width=20%/> 
+ <img src="./screenshots/4.jpg" width=20%/>
+ <img src="./screenshots/5.jpg" width=20%/>
+ <img src="./screenshots/6.jpg" width=20%/>
+ <img src="./screenshots/7.jpg" width=20%/>
+ <img src="./screenshots/8.gif" width=20%/>
+ <img src="./screenshots/9.gif" width=20%/>
+ <img src="./screenshots/10.gif" width=20%/>
+ <img src="./screenshots/11.gif" width=20%/>
+</div>
+
+## <a name="tech-stack">⚙️ Tech Stack</a>
+
+- React Native
+- Expo
+- Stylesheet
+- Clerk
+- Shopify Skia
+- Zustand
+- Async Storage
+- Reanimated 3
+
+## <a name="features">🔋 Features</a>
+
+👉 **Onboarding Screen**: Engaging graphical video and clear instructions welcome users to the app.
+
+👉 **Robust Authentication & Authorization System**: Use Clerk for user authentication with OTP.
+
+👉 **Drag-&-Drop**: With Reanimated and Gestures, App Widgets, Enhance your home screen with customizable widgets for quick insights .
+
+👉 **User-Incativity Lock Screen**: Secure your data with biometrics (fingerprint and face ID), passcode entry, and inactivity lock screens.
+
+👉 **Transaction Management**: Easily view and manage all your transactions in one place.
+
+👉 **Nested Navigation**: Bottoms-Tabs & Native-Stack Navigation, Navigate between multiple screens.
+
+👉 **Crypto Trends**: Stay updated with the latest cryptocurrency trends and data.
+
+👉 **User Profile Management**: View account details and activity, Upload and edit your profile picture and user details..
+
+👉 **Responsiveness**: Smooth performance and adaptability across various devices and screen sizes for a consistent user experience.
+
+👉 **Cross-Platform**: Enjoy a consistent experience on both iOS and Android devices.
+
+👉 **Cloud Backend**: Powered by Clerk, ensuring secure and scalable auth.
+
+👉 **Local Async Storage**: Efficient and reliable local storage for your data using react-native-async-storage.
+
+👉 **Custom UI Components**: Enjoy a sleek and intuitive interface with dropdown menus, custom screen headers, and more, all made from scratch using React Native components.
+
+👉 **State Management with Zustand**: Experience smooth and efficient state management for a seamless user experience.
+
+👉 **Graphical Charts Tracking**: Track your desired currency progress through charts with haptic feedbacks.
+
+and many more, including code architecture and reusability
+
 ## <a name="quick-start">🤸 Quick Start</a>
 
 Follow these steps to set up the project locally on your machine.
